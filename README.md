@@ -32,19 +32,19 @@ After execution, a detailed report is generated for easy review of the maintenan
 1. Download the script:
 
     ```bash
-    wget https://raw.githubusercontent.com/YuxiangMa/enhanced_system_maintenance.sh
+    wget https://raw.githubusercontent.com/YuxiangMa/sys-maintain.sh
     ```
 
 2. Make it executable:
 
     ```bash
-    chmod +x enhanced_system_maintenance.sh
+    chmod +x sys-maintain.sh
     ```
 
 3. Run the script as root:
 
     ```bash
-    sudo ./enhanced_system_maintenance.sh
+    sudo ./sys-maintain.sh
     ```
 
 4. After completion, view the maintenance report:
