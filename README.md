@@ -1,47 +1,75 @@
-Enhanced System Maintenance Script
+# Enhanced System Maintenance Script
 
-This script automates comprehensive system maintenance tasks on Debian/Ubuntu servers.
-Introduction
+> Automated system maintenance script designed for Debian/Ubuntu systems.  
+> Safe, modular, and extensible.
 
-The script performs safe, modular, and extensible maintenance operations including system update, cleanup, kernel management, cache clearing, log cleaning, and firmware updates. It generates a detailed report for review.
-Features
+---
 
-    Automatic OS detection (Debian/Ubuntu focused).
+## Overview
 
-    Updates package cache and upgrades system packages.
+This script automates various system maintenance tasks such as system updates, cache cleaning, old kernel removal, log cleanup, firmware updates, and more.  
+After execution, a detailed report is generated for easy review of the maintenance results.
 
-    Installs linux-generic package (Ubuntu).
+---
 
-    Removes old kernels, orphaned packages, residual configs.
+## Features
 
-    Cleans snap revisions, temporary directories, user caches and trash.
+- Detects the operating system (supports Debian and Ubuntu).
+- Updates package cache and performs system upgrades.
+- Installs `linux-generic` package on Ubuntu.
+- Removes old kernels, orphaned packages, and residual config files.
+- Cleans up old Snap revisions, temporary directories, user caches, and trash.
+- Vacuums journal logs older than 7 days.
+- Repairs package database and cleans up old log files.
+- Frees memory caches to improve system performance.
+- Checks for and applies firmware updates (requires `fwupdmgr`).
+- Logs all actions with a report saved in `/tmp`.
 
-    Vacuums journal logs older than 7 days.
+---
 
-    Repairs package database and cleans old log files.
+## Usage
 
-    Drops memory caches to free RAM.
+1. Download the script:
 
-    Checks and applies firmware updates (if fwupdmgr is installed).
+    ```bash
+    wget https://raw.githubusercontent.com/YuxiangMa/enhanced_system_maintenance.sh
+    ```
 
-    Logs all actions with timestamps and writes summary report to /tmp.
+2. Make it executable:
 
-Usage
+    ```bash
+    chmod +x enhanced_system_maintenance.sh
+    ```
 
-Download the script:
+3. Run the script as root:
 
-wget https://raw.githubusercontent.com/YuxiangMa/enhanced_system_maintenance.sh
+    ```bash
+    sudo ./enhanced_system_maintenance.sh
+    ```
 
-Make it executable:
+4. After completion, view the maintenance report:
 
-chmod +x enhanced_system_maintenance.sh
+    ```bash
+    cat /tmp/system_maintenance_report_YYYYMMDD.log
+    ```
 
-Run as root:
+    > Replace `YYYYMMDD` with the current date.
 
-sudo ./enhanced_system_maintenance.sh
+---
 
-After completion, check the detailed log report:
+## Notes
 
-cat /tmp/system_maintenance_report_YYYYMMDD.log
+- The script must be run as root; it will exit otherwise.
+- Tested primarily on Debian and Ubuntu. Other distros are not guaranteed.
+- Ensure `fwupdmgr` is installed to enable firmware update functionality.
+- Uses strict error handling (`set -euo pipefail`), so execution may take some time.
 
-Replace YYYYMMDD with the current date shown in the filename.
+---
+
+## License
+
+MIT License
+
+---
+
+Contributions and feedback are welcome!
