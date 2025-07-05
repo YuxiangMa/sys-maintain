@@ -32,7 +32,7 @@ After execution, a detailed report is generated for easy review of the maintenan
 1. Download the script:
 
     ```bash
-    wget https://raw.githubusercontent.com/YuxiangMa/sys-maintain.sh
+    wget https://raw.githubusercontent.com/YuxiangMa/sys_maintain/main/sys_maintain.sh
     ```
 
 2. Make it executable:
